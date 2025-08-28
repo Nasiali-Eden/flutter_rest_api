@@ -26,15 +26,21 @@ class _HomeState extends State<Home> {
           final name = user['name'];
           final picture = user['picture'];
           return ListTile(
-            leading: CircleAvatar(
-              backgroundImage: NetworkImage(picture['thumbnail']),
+            leading: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text('${index + 1}', style: const TextStyle(fontSize: 16, color: Colors.black54)),
+                const SizedBox(width: 8),
+                CircleAvatar(
+                  backgroundImage: NetworkImage(picture['thumbnail']),
+                ),
+              ],
             ),
             title: Text('${name['first']} ${name['last']}'),
             subtitle: Text(user['email']),
           );
         },
       ),
-
     );
   }
 
